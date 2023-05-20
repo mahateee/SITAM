@@ -13,7 +13,7 @@ function SignIn() {
       {/*  Page content */}
       
 <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 ">
-    <form class="space-y-6" action="#">
+    <form class="space-y-6" action="/AssetsTable" method="">
         <h5 class="text-xl font-medium text-gray-900 ">Sign in to our platform</h5>
         <div>
             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Your email</label>
@@ -32,7 +32,9 @@ function SignIn() {
             </div>
             <a href="#" class="ml-auto text-sm text-blue-700 hover:underline ">Lost Password?</a>
         </div>
-        <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login to your account</button>
+        <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <Link to="/AssetsTable" ></Link>
+            Login to your account</button>
         <div class="text-sm font-medium text-gray-500 ">
             Not registered? <a href="#" class="text-blue-700 hover:underline ">Create account</a>
         </div>
