@@ -14,10 +14,6 @@ const Asset = sequelize.define('Asset', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  Type: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
   SerialNumber: {
     type: DataTypes.STRING,
     allowNull: false
@@ -39,6 +35,10 @@ const Asset = sequelize.define('Asset', {
     allowNull: false
   },
   Description: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  Status: {
     type: DataTypes.STRING,
     allowNull: false
   },

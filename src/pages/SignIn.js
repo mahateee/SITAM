@@ -8,7 +8,7 @@ import Assests from "./Assets";
     const handleSubmit = (event) => {
       event.preventDefault();
   
-      navigate("/Assests"); 
+      navigate("/Asset"); 
     };
   return (
      <div>

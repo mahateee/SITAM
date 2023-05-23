@@ -16,14 +16,15 @@ app.get('/', (req, res) => {
 
 app.post('/Asset', async (req, res) => {
   try {
-    const { Assets, ID, Type, SerialNumber, Model , Brand,Category,Os,Description,date } = req.body;
-    const newAsset = await Asset.create({ Assets, AssetID: ID, Type, SerialNumber ,Model,Brand,Category,Os,Description, date });
+    const { Assets, ID, SerialNumber, Model , Brand,Category,Os,Description,Status,date } = req.body;
+    const newAsset = await Asset.create({ Assets, AssetID: ID, SerialNumber ,Model,Brand,Category,Os,Description, Status,date });
     res.json(newAsset);
   } catch (error) {
     console.error(error);
     res.status(500).send('Error saving asset to database');
   }
 });
+
 
 
 app.get('/Asset', async (req, res) => {
@@ -35,6 +36,7 @@ app.get('/Asset', async (req, res) => {
     res.status(500).send('Error retrieving assets from database');
   }
 });
+
 
 app.delete('/Asset/:id', async (req, res) => {
   try {
