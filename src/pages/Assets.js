@@ -4,6 +4,7 @@ import Sidebar from "../component/Sidebar";
 import {Link} from 'react-router-dom';
 function Assets() {
   const [asset, setAsset] = useState({
+    id:'',
     Assets: '',
     ID: '',
     SerialNumber: '',
@@ -28,6 +29,7 @@ function Assets() {
       .then((response) => {
         setAssets([...assets, response.data]);
         setAsset({
+          id:'',
           Assets: "",
           ID: "",
           SerialNumber: "",
@@ -74,8 +76,19 @@ function Assets() {
     await setAssets(assets.filter(asset => asset.id !== assetToDelete.id))
   }
   const [showModal, setShowModal] = useState(false);
+  const setID=(id)=>{
+    console.log(id)
+  }
   return (
     <div>
+       <button type="button"   className="flex items-center justify-center  bg-green-700  text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2  focus:outline-none ">
+       <Link to={`/Asset/add`}> <svg className="h-3.5 w-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path clipRule="evenodd" fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
+                        </svg>
+                        
+                        Add Asset
+                        </Link>
+                    </button>
       {/* Content */}
       <>
       {/* toggle form */}
@@ -383,8 +396,14 @@ function Assets() {
       {assets.length > 0 ? (
         assets.map((asset, i) => (
           <tr className="border-b" key={i}>
-            <td className="px-4 py-3">{i + 1}</td>
-            <td className="px-4 py-3">{asset.Assets}</td>
+            <td className="px-4 py-3" >{i + 1}
+            	
+
+            </td>
+
+            <td className="px-4 py-3">{asset.Assets}
+            {/* <Link to={`/Asset/show/${asset.id}`}>XXXXXXXXXXXXxxx</Link> */}
+            </td>
             <td className="px-4 py-3">
               
               {(asset.Status ==="Available")?<span className="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">Available</span>:null}
@@ -406,6 +425,26 @@ function Assets() {
                 }
               >
                 Delete
+              </button>
+            </td>
+            <td className="border px-4 py-2">
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                onClick={()=>setID(asset.id)}
+              >
+                <Link to={`/Asset/show/${asset.id}`}> 
+                show
+                </Link>
+              </button>
+            </td>
+            <td className="border px-4 py-2">
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                onClick={()=>setID(asset.id)}
+              >
+                <Link to={`/Asset/edit/${asset.id}`}> 
+                Edit
+                </Link>
               </button>
             </td>
           </tr>
