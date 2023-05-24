@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import { useNavigate  } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 
-export default function TestEdit() {
+export default function EditPage() {
     const navigate = useNavigate();
     const [asset, setAsset] = useState({
         Assets: '',
@@ -42,11 +42,13 @@ const {Assets,ID,SerialNumber,Model,Brand,Category,Os,Description,Status,date}=a
           .catch((error) => console.error(error));
       };
   return (
-    <div>TestEdit
-
+    
+  <section class="bg-white ">
+            <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+                <h2 class="mb-4 text-xl font-bold text-gray-900">Edit Asset</h2>
         
 <form onSubmit={handleSubmit} action="/Server"  className="mb-4 px-10">
-           <div className="grid gap-4 sm:grid-cols-3 sm:gap-6">
+           <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
             <div className="w-full">
               <label
                 className="block mb-2 text-sm font-medium text-gray-900"
@@ -220,6 +222,7 @@ const {Assets,ID,SerialNumber,Model,Brand,Category,Os,Description,Status,date}=a
 
             </div>
           </form> 
-    </div>
+          </div>
+        </section>
   )
 }

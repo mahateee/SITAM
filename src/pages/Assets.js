@@ -75,226 +75,15 @@ function Assets() {
     })
     await setAssets(assets.filter(asset => asset.id !== assetToDelete.id))
   }
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
   const setID=(id)=>{
     console.log(id)
   }
   return (
     <div>
-       <button type="button"   className="flex items-center justify-center  bg-green-700  text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2  focus:outline-none ">
-       <Link to={`/Asset/add`}> <svg className="h-3.5 w-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path clipRule="evenodd" fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
-                        </svg>
-                        
-                        Add Asset
-                        </Link>
-                    </button>
+       {/* 
       {/* Content */}
-      <>
-      {/* toggle form */}
-      {showModal ? (<>
-        <div className="flex justify-center  items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative  w-auto mt-10 mx-auto max-w-7xl">
-              <div className="border-0  rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                <div className="flex items-start justify-between p-1 border-b border-solid border-gray-300 rounded-t ">
-                  <h3 className="text-xl font=semibold">Asset</h3>
-                  <button
-                    className="bg-transparent border-0 text-black float-right"
-                    onClick={() => setShowModal(false)}
-                  >
-                    
-                    <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-                   
-                  </button>
-                </div>
-             
-
-                <div className="mt-2 flex flex-col flex-grow">
-  
-           <form onSubmit={handleSubmit} method="post" action="/Server"  className="mb-4 px-10">
-           <div className="grid gap-4 sm:grid-cols-3 sm:gap-6">
-            <div className="w-full">
-              <label
-                className="block mb-2 text-sm font-medium text-gray-900"
-                htmlFor="Assets"
-              >
-                Asset:
-              </label>
-              <input
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                id="Assets"
-                type="text"
-                name="Assets"
-                value={asset.Assets}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="w-full">
-              <label
-                className="block text-gray-700 font-bold mb-2"
-                htmlFor="ID"
-              >
-                ID:
-              </label>
-              <input
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                id="ID"
-                type="text"
-                name="ID"
-                value={asset.ID}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="w-full">
-              <label
-                className="block text-gray-700 font-bold mb-2"
-                htmlFor="Status"
-              >
-                Status:
-              </label>
-              <select    id="Status"  name="Status"  value={asset.Status}
-                onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
-                                <option selected="">Select Status</option>
-                                <option value="Available">Available</option>
-                                <option value="Disposed">Disposed</option>
-                                <option value="InUse">In Use</option>
-               </select>
-            </div>
-            <div className="w-full">
-              <label
-                className="block text-gray-700 font-bold mb-2"
-                htmlFor="SerialNumber"
-              >
-                Serial Number:
-              </label>
-              <input
-               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                id="SerialNumber"
-                type="text"
-                name="SerialNumber"
-                value={asset.SerialNumber}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="w-full">
-              <label
-                className="block text-gray-700 font-bold mb-2"
-                htmlFor="Model"
-              >
-                Model:
-              </label>
-              <input
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                id="Model"
-                type="text"
-                name="Model"
-                value={asset.Model}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="w-full">
-              <label
-                className="block text-gray-700 font-bold mb-2"
-                htmlFor="date"
-              >
-                Date:
-              </label>
-              <input
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                id="date"
-                type="date"
-                name="date"
-                value={asset.date}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="w-full">
-              <label
-                className="block text-gray-700 font-bold mb-2"
-                htmlFor="Brand"
-              >
-                Brand:
-              </label>
-              <input
-             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                id="Brand"
-                type="text"
-                name="Brand"
-                value={asset.Brand}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="w-full">
-              <label
-                className="block text-gray-700 font-bold mb-2"
-                htmlFor="Category"
-              >
-                Category:
-              </label>
-             
-               <select    id="Category"  name="Category"  value={asset.Category}
-                onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
-                                <option selected="">Select category</option>
-                                <option value="TV">TV/Monitors</option>
-                                <option value="PC">PC</option>
-                                <option value="GA">Gaming/Console</option>
-                                <option value="PH">Phones</option>
-               </select>
-            </div>
-            
-            <div className="w-full">
-              <label
-                className="block text-gray-700 font-bold mb-2"
-                htmlFor="Os"
-              >
-                Os:
-              </label>
-              <input
-               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                id="Os"
-                type="text"
-                name="Os"
-                value={asset.Os}
-                onChange={handleChange}
-              />
-            </div>
-            
-            <div className="w-full">
-              <label
-                className="block text-gray-700 font-bold mb-2"
-                htmlFor="Description"
-              >
-                Description:
-              </label>
-            
-               <textarea  id="Description"
-                type="text"
-                name="Description"
-                value={asset.Description}
-                onChange={handleChange} rows="8" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 " placeholder="Your description here"></textarea>
-            </div>
-            </div>
-            <div className="flex items-center justify-between">
-              <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold my-5 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="submit"
-              >
-                Add Asset
-                
-              </button>
-
-            </div>
-          </form> 
-        
-        </div>
-      </div>
-    
-              </div>
-            </div>
-      </>) : null}
-    </>
-
+     
 {/* table */}
 <section className="bg-gray-50  p-3 sm:p-5">
 
@@ -315,12 +104,13 @@ function Assets() {
                     </form>
                 </div>
                 <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                    <button type="button"  onClick={() => setShowModal(true)} className="flex items-center justify-center  bg-green-700  text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2  focus:outline-none ">
+                    <button type="button" className="flex items-center justify-center  bg-green-700  text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2  focus:outline-none ">
+                    <Link to={`/Asset/add`}>
                         <svg className="h-3.5 w-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path clipRule="evenodd" fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                         </svg>
-                        
                         Add Asset
+                        </Link>
                     </button>
                     <div className="flex items-center space-x-3 w-full md:w-auto">
                         <button id="actionsDropdownButton" data-dropdown-toggle="actionsDropdown" className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200" type="button">
@@ -418,18 +208,10 @@ function Assets() {
             
             <td className="px-4 py-3">{asset.date}</td>
 
+          
             <td className="border px-4 py-2">
               <button
-                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                onClick={() => {deleteAsset(asset);}
-                }
-              >
-                Delete
-              </button>
-            </td>
-            <td className="border px-4 py-2">
-              <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 onClick={()=>setID(asset.id)}
               >
                 <Link to={`/Asset/show/${asset.id}`}> 
@@ -445,6 +227,15 @@ function Assets() {
                 <Link to={`/Asset/edit/${asset.id}`}> 
                 Edit
                 </Link>
+              </button>
+            </td>
+            <td className="border px-4 py-2">
+              <button
+                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                onClick={() => {deleteAsset(asset);}
+                }
+              >
+                Delete
               </button>
             </td>
           </tr>
