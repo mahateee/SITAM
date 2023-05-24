@@ -83,7 +83,8 @@ function Assets() {
     <div>
        {/* 
       {/* Content */}
-     
+
+
 {/* table */}
 <section className="bg-gray-50  p-3 sm:p-5">
 
@@ -105,10 +106,11 @@ function Assets() {
                 </div>
                 <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                     <button type="button" className="flex items-center justify-center  bg-green-700  text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2  focus:outline-none ">
-                    <Link to={`/Asset/add`}>
+                   
                         <svg className="h-3.5 w-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path clipRule="evenodd" fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                         </svg>
+                        <Link to={`/Asset/add`}>
                         Add Asset
                         </Link>
                     </button>
@@ -209,34 +211,38 @@ function Assets() {
             <td className="px-4 py-3">{asset.date}</td>
 
           
-            <td className="border px-4 py-2">
-              <button
-                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                onClick={()=>setID(asset.id)}
-              >
-                <Link to={`/Asset/show/${asset.id}`}> 
-                show
+            <td className="px-4 py-2">
+             
+              <button type="button" data-drawer-target="drawer-read-product-advanced" data-drawer-show="drawer-read-product-advanced" aria-controls="drawer-read-product-advanced" class="py-2 px-3 flex items-center text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 ">
+            
+                          
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-3 mr-1 -ml-0.25" viewBox="0 0 20 20"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"></path></svg>
+                                                <Link to={`/Asset/show/${asset.id}`}> 
+                                               
+                                                Preview
                 </Link>
-              </button>
+                                            </button>
             </td>
-            <td className="border px-4 py-2">
-              <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                onClick={()=>setID(asset.id)}
-              >
-                <Link to={`/Asset/edit/${asset.id}`}> 
+            <td className=" px-4 py-2">
+             
+              <button type="button" class=" inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 font-medium text-sm px-5 py-2.5 text-center ">
+              
+                            <svg aria-hidden="true" class="mr-1 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path></svg>
+                            <Link to={`/Asset/edit/${asset.id}`}>          
                 Edit
                 </Link>
-              </button>
+                        </button>  
+
             </td>
-            <td className="border px-4 py-2">
+            <td className=" px-4 py-2">
+             
               <button
-                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                onClick={() => {deleteAsset(asset);}
-                }
-              >
-                Delete
-              </button>
+              onClick={() => {deleteAsset(asset);}
+            }
+               type="button" class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">
+                        <svg class="mr-1 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                        Delete
+                    </button>
             </td>
           </tr>
         ))

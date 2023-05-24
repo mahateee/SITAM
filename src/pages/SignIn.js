@@ -11,10 +11,10 @@ import Assests from "./Assets";
       navigate("/Asset"); 
     };
   return (
-     <div>
-      {/* Site header
-      <Header /> */}
-
+  
+  
+<section class="bg-gray-50">
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       {/*  Page content */}
 
       <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8">
@@ -96,7 +96,8 @@ import Assests from "./Assets";
           </div>
         </form>
       </div>
-    </div>
+      </div>
+</section>
 );
 }
 

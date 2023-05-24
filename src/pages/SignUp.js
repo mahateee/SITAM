@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 function SignUp() {
   return (
+    
     <div class="w-full  max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 ">
       <form class="space-y-6" action="#">
         <h5 class="text-xl font-medium text-gray-900 ">Sign UP to our platform</h5>
