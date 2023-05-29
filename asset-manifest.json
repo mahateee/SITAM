@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SITAM/static/css/main.d7b4ec28.css",
+    "main.js": "/SITAM/static/js/main.6071cca5.js",
+    "index.html": "/SITAM/index.html",
+    "main.d7b4ec28.css.map": "/SITAM/static/css/main.d7b4ec28.css.map",
+    "main.6071cca5.js.map": "/SITAM/static/js/main.6071cca5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d7b4ec28.css",
+    "static/js/main.6071cca5.js"
+  ]
+}
