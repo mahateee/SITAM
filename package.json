@@ -1,7 +1,7 @@
 {
+  "homepage": "https://mahateee.github.io/SITAM/",
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "https://mahateee.github.io/SITAM/",
   "private": true,
   "dependencies": {
     "@material-tailwind/react": "^2.0.1",
@@ -30,7 +30,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "npm run build", 
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
