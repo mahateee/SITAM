@@ -213,11 +213,11 @@ const {Assets,AssetID,SerialNumber,Model,Brand,Category,Os,Description,Status,da
             </div>
             <div className="flex items-center justify-between">
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold my-5 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-teal-700 hover:bg-teal-900 text-white font-bold my-5 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
              
-                Add Asset
+                Edit Asset
               </button>
 
             </div>
