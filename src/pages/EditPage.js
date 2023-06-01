@@ -6,6 +6,82 @@ import { useNavigate  } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 
 export default function EditPage() {
+
+  //Validate  
+  const [validation, setValidation] = useState({
+    Assets: '',
+    AssetID: '',
+    Model: '',
+    Os: '',
+    Brand: ''
+  });
+  
+  const checkValidation = () => {
+    let errors = { ...validation };
+    let isValid = true;
+  
+    // Assets name validation
+    if (!asset.Assets.trim()) {
+      errors.Assets = "Assets name is required";
+      isValid = false;
+    } else if (!asset.Assets.match(/[A-Za-z]/)) {
+      errors.Assets = "Please enter only alphabets.";
+      isValid = false;
+    } else {
+      errors.Assets = "";
+    }
+  
+    // Assets ID validation
+    if (!asset.AssetID.trim()) {
+      errors.AssetID = "Assets ID is required";
+      isValid = false;
+    } else if (!asset.AssetID.match(/[0-9]/)) {
+      errors.AssetID = "Please enter only numbers.";
+      isValid = false;
+    } else {
+      errors.AssetID = "";
+    }
+  
+    // Assets Model validation
+    if (!asset.Model.trim()) {
+      errors.Model = "Assets Model is required";
+      isValid = false;
+    } else if (!asset.Model.match(/[a-zA-Z]/)) {
+      errors.Model = "Please enter only alphabets and numbers.";
+      isValid = false;
+    } else {
+      errors.Model = "";
+    }
+  
+    // Assets OS validation
+    if (!asset.Os.trim()) {
+      errors.Os = "Assets Os is required";
+      isValid = false;
+    } else if (!asset.Os.match(/[a-zA-Z]/)) {
+      errors.Os = "Please enter only alphabets and numbers";
+      isValid = false;
+    } else {
+      errors.Os = "";
+    }
+  
+    // Assets Brand validation
+    if (!asset.Brand.trim()) {
+      errors.Brand = "Assets Brand is required";
+      isValid = false;
+    } else if (!asset.Brand.match(/[a-zA-Z]/)) {
+      errors.Brand = "Please enter only alphabets.";
+      isValid = false;
+    } else {
+      errors.Brand = "";
+    }
+  
+    setValidation(errors);
+    return isValid;
+  };
+
+  //Validate
+
+
     const navigate = useNavigate();
     const [asset, setAsset] = useState({
         Assets: '',
@@ -19,11 +95,13 @@ export default function EditPage() {
         Status:'',
         date: ''
       });
-const {Assets,AssetID,SerialNumber,Model,Brand,Category,Os,Description,Status,date}=asset;
+    
+    const {Assets,AssetID,SerialNumber,Model,Brand,Category,Os,Description,Status,date}=asset;
     const handleChange = (event) => {
       setAsset({ ...asset, [event.target.name]: event.target.value });
      
     };
+
     const { id } = useParams();
     useEffect(() => {
         axios
@@ -33,14 +111,24 @@ const {Assets,AssetID,SerialNumber,Model,Brand,Category,Os,Description,Status,da
                 console.log(response.data)
             })
             .catch((error) => console.error(error));
-    }, []);
+            
+    }, []); 
+
+    // validate-------------------------------
+
     const handleSubmit = (event) => {
         event.preventDefault();
+        const isValid = checkValidation();
+        if (isValid) {
         axios
-          .put(`/Asset/edit/${id}`, asset)
+
+          .put(`/Asset/edit/${id}`, asset) 
           .then(()=>navigate("/Asset"))
           .catch((error) => console.error(error));
+        }
       };
+
+
   return (
     
   <section class="bg-white ">
@@ -64,6 +152,9 @@ const {Assets,AssetID,SerialNumber,Model,Brand,Category,Os,Description,Status,da
                 value={asset.Assets}
                 onChange={handleChange}
               />
+          {/* validate */}
+              {validation.Assets && <p className="mt-2 text-sm text-red-600">{validation.Assets}</p>}
+
             </div>
             <div className="w-full">
               <label
@@ -80,6 +171,7 @@ const {Assets,AssetID,SerialNumber,Model,Brand,Category,Os,Description,Status,da
                 value={asset.AssetID}
                 onChange={handleChange}
               />
+              
             </div>
             <div className="w-full">
               <label
@@ -127,6 +219,7 @@ const {Assets,AssetID,SerialNumber,Model,Brand,Category,Os,Description,Status,da
                 value={asset.Model}
                 onChange={handleChange}
               />
+              
             </div>
             <div className="w-full">
               <label
@@ -159,6 +252,7 @@ const {Assets,AssetID,SerialNumber,Model,Brand,Category,Os,Description,Status,da
                 value={asset.Brand}
                 onChange={handleChange}
               />
+              
             </div>
 
             <div className="w-full">
@@ -194,6 +288,7 @@ const {Assets,AssetID,SerialNumber,Model,Brand,Category,Os,Description,Status,da
                 value={asset.Os}
                 onChange={handleChange}
               />
+              
             </div>
             
             <div className="w-full">
@@ -213,11 +308,11 @@ const {Assets,AssetID,SerialNumber,Model,Brand,Category,Os,Description,Status,da
             </div>
             <div className="flex items-center justify-between">
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold my-5 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-teal-700 hover:bg-teal-900 text-white font-bold my-5 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
              
-                Add Asset
+                Edit Asset
               </button>
 
             </div>
