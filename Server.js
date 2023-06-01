@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const axios = require('axios');
 const bodyParser = require('body-parser');
 const Asset = require('./modules/TableAsset');
 const path = require('path');
