@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function AddAsset() {
   const [asset, setAsset] = useState({
-    id: '',
     Assets: '',
     AssetID: '',
     SerialNumber: '',
@@ -31,81 +30,6 @@ export default function AddAsset() {
     Status: '',
     date: ''
   });
-  const checkValidation = () => {
-    let errors = validation;
-
-    let isValid = true
-    // Assets name validation
-    if (!asset.Assets.trim()) {
-      errors.Assets = "Assets name is required";
-      isValid = false
-    }
-    else if (!asset.Assets.match(/[A-Za-z]/)) {
-      errors.Assets = "please enter only alphabets.";
-      isValid = false
-
-    } else {
-      errors.Assets = "";
-    }
-    // Assets ID validation
-
-    if (!asset.AssetID.trim()) {
-      errors.AssetID = "Assets ID is required";
-      isValid = false
-    }
-    else if (!asset.AssetID.match(/[0-9]/)) {
-      errors.AssetID = "please enter only numbers.";
-      isValid = false
-
-    } else {
-      errors.AssetID = "";
-    }
-    // Assets Model validation
-
-    if (!asset.Model.trim()) {
-      errors.Model = "Assets Model is required";
-      isValid = false
-    }
-    else if (!asset.Model.match(/[a-zA-Z]/)) {
-      errors.Model = "please enter only alphabets and number.";
-      isValid = false
-
-    } else {
-      errors.Model = "";
-    }
-
-    // Assets OS validation
-
-    if (!asset.Os.trim()) {
-      errors.Os = "Assets Os is required";
-      isValid = false
-    }
-    else if (!asset.Os.match(/[a-zA-Z]/)) {
-      errors.Os = "please enter only alphabets and number";
-      isValid = false
-
-    } else {
-      errors.Os = "";
-    }
-
-    // Assets Brand validation
-
-    if (!asset.Brand.trim()) {
-      errors.Brand = "Assets Brand is required";
-      isValid = false
-    }
-    else if (!asset.Brand.match(/[a-zA-Z]/)) {
-      errors.Brand = "please enter only alphabets.";
-      isValid = false
-
-    } else {
-      errors.Brand = "";
-    }
-
-
-    return isValid
-  }
-  
   const [assets, setAssets] = useState([]);
   const handleChange = (event) => {
     setAsset({ ...asset, [event.target.name]: event.target.value });
@@ -333,6 +257,7 @@ export default function AddAsset() {
                 className="bg-teal-700 hover:bg-teal-900 text-white font-bold my-5 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
+             
                 Add Asset
               </button>
 
