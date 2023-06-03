@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/SITAM/static/css/main.d7b4ec28.css",
-    "main.js": "/SITAM/static/js/main.6071cca5.js",
+    "main.css": "/SITAM/static/css/main.6029d22a.css",
+    "main.js": "/SITAM/static/js/main.59fd67a6.js",
     "index.html": "/SITAM/index.html",
-    "main.d7b4ec28.css.map": "/SITAM/static/css/main.d7b4ec28.css.map",
-    "main.6071cca5.js.map": "/SITAM/static/js/main.6071cca5.js.map"
+    "main.6029d22a.css.map": "/SITAM/static/css/main.6029d22a.css.map",
+    "main.59fd67a6.js.map": "/SITAM/static/js/main.59fd67a6.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7b4ec28.css",
-    "static/js/main.6071cca5.js"
+    "static/css/main.6029d22a.css",
+    "static/js/main.59fd67a6.js"
   ]
 }
