@@ -105,12 +105,12 @@ export default function AddAsset() {
 
     return isValid
   }
-  
+
   const [assets, setAssets] = useState([]);
   const handleChange = (event) => {
     setAsset({ ...asset, [event.target.name]: event.target.value });
   };
-  
+
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -161,6 +161,8 @@ export default function AddAsset() {
                   Asset:
                 </label>
                 <input
+                 data-testid='asset-id-input'
+                 role="Assets"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   id="Assets"
                   type="text"
@@ -179,6 +181,8 @@ export default function AddAsset() {
                   ID:
                 </label>
                 <input
+               
+                label="code"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   id="AssetID"
                   type="text"
@@ -186,7 +190,7 @@ export default function AddAsset() {
                   value={asset.AssetID}
                   onChange={handleChange}
                 />
-                  {validation.AssetID && <p className="mt-2 text-sm text-red-600">{validation.AssetID}</p>}
+                {validation.AssetID && <p className="mt-2 text-sm text-red-600">{validation.AssetID}</p>}
                 {validation.AssetID && console.log(validation)}
               </div>
               <div className="w-full">
@@ -236,7 +240,7 @@ export default function AddAsset() {
                   onChange={handleChange}
 
                 />
-                  {validation.Model && <p className="mt-2 text-sm text-red-600">{validation.Model}</p>}
+                {validation.Model && <p className="mt-2 text-sm text-red-600">{validation.Model}</p>}
                 {validation.Model && console.log(validation)}
               </div>
               <div className="w-full">
@@ -254,7 +258,7 @@ export default function AddAsset() {
                   value={asset.date}
                   onChange={handleChange}
                 />
-                
+
               </div>
               <div className="w-full">
                 <label
@@ -271,7 +275,7 @@ export default function AddAsset() {
                   value={asset.Brand}
                   onChange={handleChange}
                 />
-                  {validation.Brand && <p className="mt-2 text-sm text-red-600">{validation.Brand}</p>}
+                {validation.Brand && <p className="mt-2 text-sm text-red-600">{validation.Brand}</p>}
                 {validation.Brand && console.log(validation)}
               </div>
 
@@ -309,7 +313,7 @@ export default function AddAsset() {
                   value={asset.Os}
                   onChange={handleChange}
                 />
-                          {validation.Os && <p className="mt-2 text-sm text-red-600">{validation.Os}</p>}
+                {validation.Os && <p className="mt-2 text-sm text-red-600">{validation.Os}</p>}
                 {validation.Os && console.log(validation)}
               </div>
 
@@ -330,10 +334,11 @@ export default function AddAsset() {
             </div>
             <div className="flex items-center justify-between">
               <button
+                role="button"
                 className="bg-teal-700 hover:bg-teal-900 text-white font-bold my-5 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
-             
+
                 Add Asset
               </button>
 

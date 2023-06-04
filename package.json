@@ -7,7 +7,6 @@
     "@hookform/resolvers": "^3.1.0",
     "@material-tailwind/react": "^2.0.1",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "body-parser": "^1.20.2",
@@ -36,10 +35,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy" : "npm run build",
-"deploy" : "gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -68,9 +67,12 @@
   "devDependencies": {
     "@babel/preset-env": "^7.22.4",
     "@babel/preset-react": "^7.22.3",
+    "@testing-library/react": "^14.0.0",
     "babel-jest": "^29.5.0",
+    "enzyme-to-json": "^3.6.2",
     "gh-pages": "^5.0.0",
     "jest": "^27.5.1",
+    "testPathIgnorePatterns": ["\/test.js"],
     "react-test-renderer": "^18.2.0",
     "sqlite3": "^5.1.6"
   }

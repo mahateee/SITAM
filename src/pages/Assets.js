@@ -73,7 +73,7 @@ function Assets() {
     console.log(id)
   }
   return (
-    <div>
+    <div data-testid="asset-table">
      
      
 {/* table */}
@@ -181,7 +181,7 @@ function Assets() {
     <tbody>
       {assets.length > 0 ? (
         assets.map((asset, i) => (
-          <tr className="border-b" key={i}>
+          <tr className="border-b" data-testid='asset' key={i}>
             <td className="px-4 py-3" >{i + 1}
             	
 

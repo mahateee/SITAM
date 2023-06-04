@@ -11,7 +11,7 @@ export default function Header() {
       <span class="self-center text-2xl font-semibold whitespace-nowrap">SITAM</span>
   </a>
   <div class="flex md:order-2">
-      <button type="button" class=" text-gray-900 hover:text-gray-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center mr-3   ">
+      <button role='button' type="button" class=" text-gray-900 hover:text-gray-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center mr-3   ">
       <Link to="/signin">Sign in</Link>
       </button>
       <button type="button" class="text-white bg-teal-600 hover:bg-teal-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3">
