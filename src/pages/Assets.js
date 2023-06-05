@@ -50,7 +50,8 @@ function Assets() {
       .catch((error) => console.error(error));
   }, []);
 
-
+  const [searchText, setSearchText] = useState("");
+  // const [data, setData] = useState(dataList);
   
   const deleteAsset = async (assetToDelete) => {
     console.log("delet?");
@@ -62,25 +63,45 @@ function Assets() {
     })
     await setAssets(assets.filter(asset => asset.id !== assetToDelete.id))
   }
+  const handleChange = value => {
+    setSearchText(value);
+    filterData(value);
+  };
+  // exclude column list from filter
+  const excludeColumns = ["id"];
+  // filter records by search text
+  const filterData = (value) => {
+    const lowercasedValue = value.toLowerCase().trim();
+    if (lowercasedValue === "") {
+      axios
+      .get("/Asset")
+      .then((response) => setAssets(response.data))
+      .catch((error) => console.error(error));
+    }
+    else {
+      const filteredData = assets.filter(item => {
+        return Object.keys(item).some(key =>
+          excludeColumns.includes(key) ? false : item[key].toString().toLowerCase().includes(lowercasedValue)
+        );
+      });
+      setAssets(filteredData);
+    }
+  }
 
 
-
-
-
-  
 
   const setID=(id)=>{
     console.log(id)
   }
   return (
     <div data-testid="asset-table">
-     
+     <Sidebar/>
      
 {/* table */}
 <section className="bg-gray-50  p-3 sm:p-5">
 
 
-<div className="mx-auto max-w-screen-xl px-4 lg:px-12">
+<div className="mx-auto max-w-screen-xl px-6 lg:px-12">
 
 <div className="bg-white relative shadow-md sm:rounded-lg overflow-hidden">
 <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
@@ -94,6 +115,8 @@ function Assets() {
                                 </svg>
                             </div>
                             <input type="text" id="simple-search" 
+                             value={searchText}
+                             onChange={e => handleChange(e.target.value)}
                              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 " placeholder="Search" required=""/>
                         </div>
                     </form>

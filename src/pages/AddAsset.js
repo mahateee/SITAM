@@ -145,6 +145,7 @@ export default function AddAsset() {
   }, [asset]);
   return (
     <div>
+     <Sidebar/>
 
       <section class="bg-white ">
 
@@ -295,6 +296,17 @@ export default function AddAsset() {
                   <option value="PC">PC</option>
                   <option value="Printer">Printer</option>
                   <option value="Phone">Phone</option>
+                  <option value="Projector">Projector</option>
+                  <option value="Keyboard">Keyboard</option>
+                  <option value="Mouse">Mouse</option>
+                  <option value="Tablet">Tablet</option>
+                  <option value="Scanner">Scanner</option>
+
+
+
+
+
+
                 </select>
               </div>
 
@@ -303,7 +315,7 @@ export default function AddAsset() {
                   className="block text-gray-700 font-bold mb-2"
                   htmlFor="Os"
                 >
-                  Os:
+                  Operating System:
                 </label>
                 <input
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"

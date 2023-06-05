@@ -122,6 +122,8 @@ export default function EditPage() {
 
   return (
     <section className="bg-white">
+     <Sidebar/>
+
       <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
         <h2 className="mb-4 text-xl font-bold text-gray-900">Edit Asset</h2>
 
@@ -243,10 +245,16 @@ export default function EditPage() {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
               >
                 <option>Select category</option>
-                <option value="TV">TV/Monitors</option>
-                <option value="PC">PC</option>
-                <option value="GA">Gaming/Console</option>
-                <option value="PH">Phones</option>
+                <option value="Monitors">Monitors</option>
+                  <option value="Laptop">Laptop</option>
+                  <option value="PC">PC</option>
+                  <option value="Printer">Printer</option>
+                  <option value="Phone">Phone</option>
+                  <option value="Projector">Projector</option>
+                  <option value="Keyboard">Keyboard</option>
+                  <option value="Mouse">Mouse</option>
+                  <option value="Tablet">Tablet</option>
+                  <option value="Scanner">Scanner</option>
               </select>
             </div>
             <div className="w-full">

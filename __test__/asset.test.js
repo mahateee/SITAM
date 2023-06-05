@@ -1,10 +1,7 @@
 import { render, waitFor, screen, findAllByTestId } from "@testing-library/react";
-import Assets from './pages/Assets';
+import Assets from '../src/pages/Assets';
 import userEvent from '@testing-library/user-event'
-import AddAsset from './pages/AddAsset';
-import Home from './pages/Home';
-import { useNavigate } from "react-router-dom";
-
+import AddAsset from '../src/pages/AddAsset';
 import '@testing-library/jest-dom'
 import axios from "axios";
 import {
@@ -18,15 +15,15 @@ jest.mock("axios");
 const dummyTodos = [
   {
     id: 1,
-    Assets: 'x',
-    AssetID: 'x',
-    SerialNumber: '09',
-    Model: 'os',
+    Assets: 'mada laptop',
+    AssetID: '1111',
+    SerialNumber: '00oi89',
+    Model: 'macbook 34',
     Brand: 'apple',
     Category: 'laptop',
     Os: 'mac',
-    Description: 'x',
-    Status: 'x',
+    Description: 'test',
+    Status: 'avaliable',
     date: '02-02-2022'
   },
 ];

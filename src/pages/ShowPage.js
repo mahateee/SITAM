@@ -27,10 +27,12 @@ export default function ShowPage() {
   return (
 
     <div >
+     <Sidebar/>
+
     {/* <Sidebar/> */}
       <section class="text-gray-600 body-font  overflow-hidden">
         <div class="container px-5 py-24 mx-auto">
-          <div class="lg:w-4/5 mx-auto bg-gray-50 rounded-lg border border-gray-200 p-8 items-center content-center flex flex-wrap">
+          <div class="lg:w-4/5 mx-auto bg-gray-50 rounded-lg border border-gray-200 p-8 items-center content-center flex ">
             <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
               <h2 class="text-sm title-font text-gray-500 tracking-widest">Asset information</h2>
               <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">{asset.Assets}</h1>
