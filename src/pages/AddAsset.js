@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 export default function AddAsset() {
-  const [asset, setAsset] = useState({
+  const [assetForm, setAssetForm] = useState({
     id: '',
     Assets: '',
     AssetID: '',
@@ -33,14 +33,13 @@ export default function AddAsset() {
   });
   const checkValidation = () => {
     let errors = validation;
-
     let isValid = true
     // Assets name validation
-    if (!asset.Assets.trim()) {
+    if (!assetForm.Assets.trim()) {
       errors.Assets = "Assets name is required";
       isValid = false
     }
-    else if (!asset.Assets.match(/[A-Za-z]/)) {
+    else if (!assetForm.Assets.match(/[A-Za-z]/)) {
       errors.Assets = "please enter only alphabets.";
       isValid = false
 
@@ -48,12 +47,11 @@ export default function AddAsset() {
       errors.Assets = "";
     }
     // Assets ID validation
-
-    if (!asset.AssetID.trim()) {
+    if (!assetForm.AssetID.trim()) {
       errors.AssetID = "Assets ID is required";
       isValid = false
     }
-    else if (!asset.AssetID.match(/[0-9]/)) {
+    else if (!assetForm.AssetID.match(/[0-9]/)) {
       errors.AssetID = "please enter only numbers.";
       isValid = false
 
@@ -62,11 +60,11 @@ export default function AddAsset() {
     }
     // Assets Model validation
 
-    if (!asset.Model.trim()) {
+    if (!assetForm.Model.trim()) {
       errors.Model = "Assets Model is required";
       isValid = false
     }
-    else if (!asset.Model.match(/[a-zA-Z]/)) {
+    else if (!assetForm.Model.match(/[a-zA-Z]/)) {
       errors.Model = "please enter only alphabets and number.";
       isValid = false
 
@@ -76,11 +74,11 @@ export default function AddAsset() {
 
     // Assets OS validation
 
-    if (!asset.Os.trim()) {
+    if (!assetForm.Os.trim()) {
       errors.Os = "Assets Os is required";
       isValid = false
     }
-    else if (!asset.Os.match(/[a-zA-Z]/)) {
+    else if (!assetForm.Os.match(/[a-zA-Z]/)) {
       errors.Os = "please enter only alphabets and number";
       isValid = false
 
@@ -90,11 +88,11 @@ export default function AddAsset() {
 
     // Assets Brand validation
 
-    if (!asset.Brand.trim()) {
+    if (!assetForm.Brand.trim()) {
       errors.Brand = "Assets Brand is required";
       isValid = false
     }
-    else if (!asset.Brand.match(/[a-zA-Z]/)) {
+    else if (!assetForm.Brand.match(/[a-zA-Z]/)) {
       errors.Brand = "please enter only alphabets.";
       isValid = false
 
@@ -108,7 +106,7 @@ export default function AddAsset() {
 
   const [assets, setAssets] = useState([]);
   const handleChange = (event) => {
-    setAsset({ ...asset, [event.target.name]: event.target.value });
+    setAssetForm({ ...assetForm, [event.target.name]: event.target.value });
   };
 
   const navigate = useNavigate();
@@ -117,10 +115,10 @@ export default function AddAsset() {
     const isValid = checkValidation();
     if (isValid) {
       axios
-        .post("/Asset/add", asset)
+        .post("/Asset/add", assetForm)
         .then((response) => {
           setAssets([...assets, response.data]);
-          setAsset({
+          setAssetForm({
             Assets: "",
             AssetID: "",
             SerialNumber: "",
@@ -142,10 +140,10 @@ export default function AddAsset() {
       .get("/Asset/add")
       .catch((error) => console.error(error));
     checkValidation();
-  }, [asset]);
+  }, [assetForm]);
   return (
     <div>
-     <Sidebar/>
+      <Sidebar />
 
       <section class="bg-white ">
 
@@ -162,13 +160,13 @@ export default function AddAsset() {
                   Asset:
                 </label>
                 <input
-                 data-testid='asset-id-input'
-                 role="Assets"
+                  data-testid='asset-id-input'
+                  role="Assets"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   id="Assets"
                   type="text"
                   name="Assets"
-                  value={asset.Assets}
+                  value={assetForm.Assets}
                   onChange={handleChange}
                 />
                 {validation.Assets && <p className="mt-2 text-sm text-red-600">{validation.Assets}</p>}
@@ -182,13 +180,13 @@ export default function AddAsset() {
                   ID:
                 </label>
                 <input
-               
-                label="code"
+
+                  label="code"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   id="AssetID"
                   type="text"
                   name="AssetID"
-                  value={asset.AssetID}
+                  value={assetForm.AssetID}
                   onChange={handleChange}
                 />
                 {validation.AssetID && <p className="mt-2 text-sm text-red-600">{validation.AssetID}</p>}
@@ -201,7 +199,7 @@ export default function AddAsset() {
                 >
                   Status:
                 </label>
-                <select id="Status" name="Status" value={asset.Status}
+                <select id="Status" name="Status" value={assetForm.Status}
                   onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
                   <option selected="">Select Status</option>
                   <option value="Available">Available</option>
@@ -221,7 +219,7 @@ export default function AddAsset() {
                   id="SerialNumber"
                   type="text"
                   name="SerialNumber"
-                  value={asset.SerialNumber}
+                  value={assetForm.SerialNumber}
                   onChange={handleChange}
                 />
               </div>
@@ -237,7 +235,7 @@ export default function AddAsset() {
                   id="Model"
                   type="text"
                   name="Model"
-                  value={asset.Model}
+                  value={assetForm.Model}
                   onChange={handleChange}
 
                 />
@@ -256,7 +254,7 @@ export default function AddAsset() {
                   id="date"
                   type="date"
                   name="date"
-                  value={asset.date}
+                  value={assetForm.date}
                   onChange={handleChange}
                 />
 
@@ -273,7 +271,7 @@ export default function AddAsset() {
                   id="Brand"
                   type="text"
                   name="Brand"
-                  value={asset.Brand}
+                  value={assetForm.Brand}
                   onChange={handleChange}
                 />
                 {validation.Brand && <p className="mt-2 text-sm text-red-600">{validation.Brand}</p>}
@@ -288,7 +286,7 @@ export default function AddAsset() {
                   Category:
                 </label>
 
-                <select id="Category" name="Category" value={asset.Category}
+                <select id="Category" name="Category" value={assetForm.Category}
                   onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
                   <option selected="">Select category</option>
                   <option value="Monitors">Monitors</option>
@@ -301,12 +299,6 @@ export default function AddAsset() {
                   <option value="Mouse">Mouse</option>
                   <option value="Tablet">Tablet</option>
                   <option value="Scanner">Scanner</option>
-
-
-
-
-
-
                 </select>
               </div>
 
@@ -322,7 +314,7 @@ export default function AddAsset() {
                   id="Os"
                   type="text"
                   name="Os"
-                  value={asset.Os}
+                  value={assetForm.Os}
                   onChange={handleChange}
                 />
                 {validation.Os && <p className="mt-2 text-sm text-red-600">{validation.Os}</p>}
@@ -340,7 +332,7 @@ export default function AddAsset() {
                 <textarea id="Description"
                   type="text"
                   name="Description"
-                  value={asset.Description}
+                  value={assetForm.Description}
                   onChange={handleChange} rows="8" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 " placeholder="Your description here"></textarea>
               </div>
             </div>
